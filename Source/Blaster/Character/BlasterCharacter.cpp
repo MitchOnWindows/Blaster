@@ -5,8 +5,6 @@
 #include "InputTriggers.h"
 #include "InputMappingContext.h"
 #include "EnhancedInputSubsystems.h"
-#include  "EnhancedInputComponent.h"
-#include "Blaster/Helper.h"
 #include "Blaster/BlasterComponents/CombatComponent.h"
 #include "Blaster/Weapon/Weapon.h"
 #include "Components/WidgetComponent.h"
@@ -137,20 +135,16 @@ void ABlasterCharacter::ServerEquipButtonPressed_Implementation()
 // this will only be called on the server
 void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
 {
-	Helper::Debug(FString("On overlap!"));
 	if (OverlappingWeapon)
 	{
-		Helper::Debug(FString("Has OverlappingWeapon, show picker widget false"));
 		OverlappingWeapon->ShowPickUpWidget(false);
 	}
 	
 	OverlappingWeapon = Weapon;
 	if (IsLocallyControlled())
 	{
-		Helper::Debug(FString("Is Locally controlled"));
 		if (OverlappingWeapon)
 		{
-			Helper::Debug(FString("Show pickup widget true"));
 			OverlappingWeapon->ShowPickUpWidget(true);
 		}
 	}
@@ -159,15 +153,12 @@ void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
 // this will be sent to clients
 void ABlasterCharacter::OnRep_OverlappingWeapon(AWeapon* LastWeapon)
 {
-	Helper::Debug(FString("REP_ overlapping weapon"));
 	if (OverlappingWeapon)
 	{
-		Helper::Debug(FString("Show pickup widget true 2"));
 		OverlappingWeapon->ShowPickUpWidget(true);
 	}
 	if (LastWeapon)
 	{
-		Helper::Debug(FString("Show pickup widget false 2"));
 		LastWeapon->ShowPickUpWidget(false);
 	}
 }
