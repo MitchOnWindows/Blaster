@@ -25,7 +25,5 @@ public:
 	void ShowPlayerNetRole(APawn* InPawn);
 
 protected:
-	// virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld);
-
 	virtual void NativeDestruct() override;
 };

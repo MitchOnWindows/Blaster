@@ -121,12 +121,12 @@ void ABlasterCharacter::EquipButtonPressed()
 		}
 		else
 		{
-			ServerEquipButtonPress();
+			ServerEquipButtonPressed();
 		}
 	}
 }
 
-void ABlasterCharacter::ServerEquipButtonPress_Implementation()
+void ABlasterCharacter::ServerEquipButtonPressed_Implementation()
 {
 	if (Combat)
 	{

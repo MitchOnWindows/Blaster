@@ -27,7 +27,6 @@ AWeapon::AWeapon()
 
 	PickUpWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("PickUpWidget"));
 	PickUpWidget->SetupAttachment(RootComponent);
-	PickUpWidget->SetVisibility(false);
 }
 
 // Called when the game starts or when spawned
